@@ -15,24 +15,27 @@ destroyBtn.addEventListener('click', destroyBoxes);
 function createBoxes(amount) {
   amount = input.value;
   
-  let widthValue = 30;
-  let heightValue = 30;
+  let basicWidth = 30;
+  let basicHeight = 30;
+  let documentFragment = document.createDocumentFragment();
   
   for (let i = 0; i < amount; i += 1) {
+    
     let newEl = document.createElement('div');
     
     newEl.style.backgroundColor = getRandomHexColor();
     
-    widthValue += 10;
-    heightValue += 10;
+    let width = basicWidth + i*10;
+    let height = basicHeight + i*10;
     
-    newEl.style.width = `${widthValue}px`;
-    newEl.style.height = `${heightValue}px`;
-        
-    boxes.append(newEl);
+    newEl.style.width = `${width}px`;
+    newEl.style.height = `${height}px`;
+
+    documentFragment.append(newEl);    
+    
   }
-    
-  console.log(boxes)
+  boxes.append(documentFragment);  
+  
 }
 
 function destroyBoxes() {
