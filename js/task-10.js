@@ -9,12 +9,16 @@ const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
 const boxes = document.querySelector('#boxes')
 
-createBtn.addEventListener('click', createBoxes);
+createBtn.addEventListener('click', getAmount);
 destroyBtn.addEventListener('click', destroyBoxes);
 
+function getAmount() {
+  const amount = input.value;
+  createBoxes(amount);
+}
+
 function createBoxes(amount) {
-  amount = input.value;
-  
+    
   let basicWidth = 30;
   let basicHeight = 30;
   let documentFragment = document.createDocumentFragment();
