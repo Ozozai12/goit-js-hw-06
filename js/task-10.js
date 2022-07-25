@@ -21,7 +21,7 @@ function createBoxes(amount) {
     
   let basicWidth = 30;
   let basicHeight = 30;
-  let documentFragment = document.createDocumentFragment();
+  const container = [];
   
   for (let i = 0; i < amount; i += 1) {
     
@@ -35,11 +35,10 @@ function createBoxes(amount) {
     newEl.style.width = `${width}px`;
     newEl.style.height = `${height}px`;
 
-    documentFragment.append(newEl);    
+    container.push(newEl);    
     
   }
-  boxes.append(documentFragment);  
-  
+  boxes.append(...container);  
 }
 
 function destroyBoxes() {
